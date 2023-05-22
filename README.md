@@ -3,6 +3,18 @@
 당근마켓이나 중고나라와 같은 중고물품거래 서비스를 제공
 
 
+## ⚒️ 사용 스택
+![image](https://user-images.githubusercontent.com/102509636/227448656-b24b6c73-92ae-4219-beb1-9ca08c0f34a4.png)
+
+![image](https://user-images.githubusercontent.com/102509636/227448692-f849f733-ec4a-41ea-9aa4-7b8403a46d28.png)
+![image](https://user-images.githubusercontent.com/102509636/227448758-6146774c-5b40-4e7d-b949-862170add5ed.png)
+![image](https://user-images.githubusercontent.com/102509636/227448768-a8a0d208-ef0a-4e0e-958a-8c81e13c0761.png)
+![image](https://user-images.githubusercontent.com/102509636/227448788-3e24cc79-0717-424f-be61-4f787bd4ace4.png)
+![image](https://user-images.githubusercontent.com/102509636/227448833-891b8f58-0d48-4688-a864-d8b0ec9e7865.png)
+![image](https://img.shields.io/badge/redis-DC382D?style=for-the-badge&logo=Redis&logoColor=white)
+![image](https://user-images.githubusercontent.com/102509636/226165425-4602e344-14c4-424e-9515-56f76ded026b.png)
+
+
 ##  💻 프로젝트 기능 및 설계
 
 [회원]
