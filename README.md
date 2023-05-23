@@ -67,6 +67,7 @@
 
 ## 📄 ERD
 
-![image](https://github.com/pumkinni/Used-Transaction_Project/assets/102509636/a7d6dcc8-6b72-4fd9-b892-273dccdd1633)
+![image](https://github.com/pumkinni/Used-Transaction_Project/assets/102509636/6816e5e3-62d1-47b6-83f2-f0ddb174e593)
+
 
 
