@@ -29,6 +29,7 @@ dependencies {
 
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
     implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+    implementation 'org.springframework.data:spring-data-envers'
 
 
     annotationProcessor 'org.projectlombok:lombok'
