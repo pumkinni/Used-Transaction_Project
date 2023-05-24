@@ -31,12 +31,20 @@ public class Member extends BaseEntity {
   private String nickname;
   @Column(unique = true)
   private String email;
+  @Column
   private String password;
+  @Column
   private boolean deleted;
+  @Column
   private LocalDateTime deletedAt;
+  @Column
   private boolean verify;
+  @Column
   private String verificationCode;
+  @Column
   private LocalDateTime verificationExpiredAt;
+  // like list 추가(post 테이블 생성 후)
+
 
   public static Member from(SignUpForm form) {
     return Member.builder()
@@ -48,6 +56,5 @@ public class Member extends BaseEntity {
         .build();
   }
 
-  // like list 추가(post 테이블 생성 후)
 
 }
