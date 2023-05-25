@@ -1,9 +1,12 @@
 package com.example.usedtransaction.exception;
 
-public class MemberException extends RuntimeException{
+import lombok.Getter;
+
+@Getter
+public class CustomException extends RuntimeException{
   private final ErrorCode errorCode;
 
-  public MemberException(ErrorCode errorCode){
+  public CustomException(ErrorCode errorCode){
     super(errorCode.getDetail());
     this.errorCode = errorCode;
   }

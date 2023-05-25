@@ -5,13 +5,12 @@ import com.example.usedtransaction.client.MailgunClient;
 import com.example.usedtransaction.client.mailgun.SendMailForm;
 import com.example.usedtransaction.domain.SignUpForm;
 import com.example.usedtransaction.domain.model.Member;
+import com.example.usedtransaction.exception.CustomException;
 import com.example.usedtransaction.exception.ErrorCode;
-import com.example.usedtransaction.exception.MemberException;
 import com.example.usedtransaction.service.SignUpService;
-import java.time.LocalDateTime;
-import java.util.Random;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,9 +20,13 @@ public class SignUpApplication {
   private final MailgunClient mailgunClient;
   private final SignUpService signUpService;
 
+  public void customerVerify(String email, String code) {
+    signUpService.verifyEmail(email, code);
+  }
+
   public String signUp(SignUpForm form) {
     if (signUpService.isEmailPresent(form.getEmail())) {
-      throw new MemberException(ErrorCode.ALREADY_REGISTER_USER);
+      throw new CustomException(ErrorCode.ALREADY_REGISTER_USER);
 
     } else {
       Member m = signUpService.signUp(form);
@@ -31,13 +34,13 @@ public class SignUpApplication {
       String code = getRandomCode();
 
       SendMailForm sendMailForm = SendMailForm.builder()
-          .from("test1@gmail.com")
+          .from("test1@test.com")
           .to(form.getEmail())
           .subject("Verification Email!")
           .text(getVerificationEmailBody(m.getEmail(), m.getNickname(), code))
           .build();
 
-      mailgunClient.sendEmail(sendMailForm);
+      ResponseEntity response = mailgunClient.sendEmail(sendMailForm);
 
       signUpService.changeMemberValidateEmail(m.getId(), code);
 
@@ -46,14 +49,14 @@ public class SignUpApplication {
 
   }
 
-  private String getRandomCode(){
+  private String getRandomCode() {
     return RandomStringUtils.random(10, true, true);
   }
 
-  private String getVerificationEmailBody(String email, String name, String code){
+  private String getVerificationEmailBody(String email, String name, String code) {
     StringBuilder builder = new StringBuilder();
     return builder.append("Hello").append(name).append("! Please Click Link for verification.\n\n")
-        .append("http://localhost:8081/member/signup/verify?email=")
+        .append("http://localhost:8081/signup/verify/member?email=")
         .append(email)
         .append("&code=")
         .append(code).toString();
